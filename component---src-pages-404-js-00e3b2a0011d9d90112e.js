@@ -1,0 +1,2 @@
+(self.webpackChunkgatsby_i18n=self.webpackChunkgatsby_i18n||[]).push([[883],{9616:function(e,t,n){"use strict";n.r(t);var a=n(7294),l=n(3751),u=n(5997);t.default=function(){var e=(0,u.Z)(),t=e.NotFoundPageTitle,n=e.NotFoundPageContent;return a.createElement(a.Fragment,null,a.createElement(l.Z,{title:t}),a.createElement("h1",null,n))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-00e3b2a0011d9d90112e.js.map
