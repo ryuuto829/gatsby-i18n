@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 import { useLocation, navigate } from '@reach/router';
 
 import useTranslation from '../hooks/useTranslation';
@@ -10,10 +10,15 @@ const Header = ({ locale, isDefault }) => {
   const { pathname } = useLocation();
   const { title } = useTranslation();
 
-
-
   const changeLangHandler = (e, lang) => {
     e.preventDefault();
+
+    // NOTE: This project is hosted on github-pages
+    // and URL starts with "repo-name" prefix, so we
+    // need to remove pathPrefix from the pathname
+    // and change "navigate" path
+    const prefix = withPrefix('/');
+    const path = pathname.split(prefix).join('');
 
     if (locale === lang) {
       return;
@@ -22,7 +27,11 @@ const Header = ({ locale, isDefault }) => {
     // Pathname is a string like in ex.: "/ja/" or "/ja/page-2".
     // In case we want to switch to default language, then we'll omit first three
     // characters from the url ("/ja"), if not - add language to the path
-    !isDefault ? navigate(pathname.slice(3)) : navigate(`/${lang}${pathname}`);
+    if (!isDefault) {
+      navigate(`${prefix}${path.slice(3)}`) ;
+    } else {
+      navigate(`${prefix}${lang}/${path}`);
+    }
   };
 
   return (
