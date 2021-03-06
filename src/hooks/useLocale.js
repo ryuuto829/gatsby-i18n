@@ -9,19 +9,26 @@ const LocaleContext = createContext('');
 const LocaleProvider = ({ children }) => {
   const { pathname } = useLocation();
 
+  // Find a default language
+  const defaultLang = Object.keys(allLocales)
+    .filter(lang => allLocales[lang].default)[0];
+
   // Get language prefix from the URL
   const urlLang = pathname.split('/')[1];
+
   // Search if locale matches defined, if not set 'en' as default
   const currentLang = Object.keys(allLocales)
     .map(lang => allLocales[lang].path)
     .includes(urlLang)
     ? urlLang
-    : 'en';
+    : defaultLang;
 
   const [locale, setLocale] = useState(currentLang);
 
   const changeLocale = lang => {
-    if (lang) {setLocale(lang);}
+    if (lang) {
+      setLocale(lang);
+    }
   };
 
   return (
