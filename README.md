@@ -1,8 +1,10 @@
 # gatsby-i18n
 
-A sample project for creating simple i18n using Gatsby.
+A sample project for creating simple i18n using Gatsby with hooks.
 
-> **Read more in this [article](https://dev.to/ryuuto829/multi-language-i18n-gatsby-app-with-hooks-2o31) on [dev.to](https://dev.to/).** > **Take a look at the [DEMO](https://ryuuto829.github.io/gatsby-i18n/)**
+> **Read more in this [article](https://dev.to/ryuuto829/multi-language-i18n-gatsby-app-with-hooks-2o31) on [dev.to](https://dev.to/).**
+
+**Take a look at the [DEMO](https://ryuuto829.github.io/gatsby-i18n/)**
 
 ## Links
 
